@@ -1,4 +1,5 @@
 import React from 'react';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 
 const Geolocation = navigator.geolocation
@@ -16,7 +17,16 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.mapContainer}>
-          <Text>Map</Text>
+          <MapView
+            showsUserLocation
+            style={{ flex: 1 }}
+            // initialRegion={{
+            //   latitude: 37.78825,
+            //   longitude: -122.4324,
+            //   latitudeDelta: 0.0922,
+            //   longitudeDelta: 0.0421,
+            // }}
+          />
         </View>
         <View style={styles.controls}>
           <View style={styles.recBtnWrap}>
@@ -62,7 +72,7 @@ const styles = StyleSheet.create({
   },
   mapContainer: {
     flex: 1,
-    backgroundColor: '#adcffb',
+    // backgroundColor: '#adcffb',
     alignSelf: 'stretch',
   },
   controls: {
